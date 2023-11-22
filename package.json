@@ -1,15 +1,14 @@
 {
-  "name": "book-network",
+  "name": "book-network",  
   "homepage": "http://kh595.github.io",
   "version": "0.1.0",
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
-    "predeploy": "npm run build",
-    "deploy": "touch out/.nojekyll && gh-pages -d out --dotfiles",
     "start": "next start",
-    "lint": "next lint"
+    "build": "next build",    
+    "deploy": "touch out/.nojekyll && gh-pages -d out --dotfiles",
+    "predeploy": "npm run build"
   },
   "dependencies": {
     "react": "^18",
