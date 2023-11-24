@@ -1,4 +1,3 @@
-// import ForceGraph3D from 'react-force-graph-3d';
 import dynamic from 'next/dynamic';
 import SpriteText from 'three-spritetext';
 import data from './books.json';
