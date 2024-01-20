@@ -2,7 +2,6 @@
 
 const nextConfig = {
     reactStrictMode: true,    
-    basePath: process.env.NODE_ENV === 'production' ? '/kh595.github.io' : '',
     trailingSlash: true,
 }
 
