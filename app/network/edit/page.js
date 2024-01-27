@@ -1,8 +1,10 @@
 'use client'
-import { HotTable } from '@handsontable/react';
-import { registerAllModules } from 'handsontable/registry';
+import dynamic from "next/dynamic";
+import {registerAllModules}  from 'handsontable/registry';
 import 'handsontable/dist/handsontable.full.min.css';
 import data from '../books.json';
+
+const HotTable = dynamic( () => import('@handsontable/react').then(mod=>{ return mod; }), { ssr: false } ); 
 
 registerAllModules();
 
