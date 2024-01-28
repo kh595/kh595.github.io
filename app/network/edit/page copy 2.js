@@ -1,5 +1,5 @@
 'use client'
-import { useEffect, useState, useRef } from 'react';
+'use client'
 import dynamic from "next/dynamic";
 import { registerAllModules } from 'handsontable/registry';
 import 'handsontable/dist/handsontable.full.min.css';
@@ -18,26 +18,29 @@ async function getData() {
     return res.json()
 }
 
-export default async function Home() {
-    const hotRef = useRef(null)
-    const data = await getData()
-    let onClick;
+function ExampleComponent(data) {
+    const hotRef = useRef(null);
 
     useEffect(() => {
         const hot = hotRef.current.hotInstance;
+        let saveClickCallback
 
-        onClick = async (e) => {
-            e.preventDefault();
-
-            await fetch("http://localhost:3000/network/api/", {
-                method: "POST",
+        saveClickCallback = () => {
+            // save all cell's data
+            fetch('http://localhost:3000/newtork/api/', {
+                method: 'POST',
+                mode: 'no-cors',
                 headers: {
-                    "Content-Type": "application/json",
+                    'Content-Type': 'application/json'
                 },
                 body: JSON.stringify({ data: hot.getData() })
-            });
+            })
+                .then(response => {
+                    setOutput('Data saved');
+                    console.log('The POST request is only used here for the demo purposes');
+                });
         };
-    })
+    });
 
     return (
         <>
@@ -45,19 +48,22 @@ export default async function Home() {
                 save
             </button>
             <HotTable
-                // set `HotTable`'s props here
-                // data={[
-                //   ['', 'Tesla', 'Volvo', 'Toyota', 'Ford'],
-                //   ['2019', 10, 11, 12, 13],
-                //   ['2020', 20, 11, 14, 13],
-                //   ['2021', 30, 15, 12, 13]
-                // ]}
                 data={data.data}
                 rowHeaders={true}
                 colHeaders={true}
                 height="auto"
                 licenseKey="non-commercial-and-evaluation" // for non-commercial use only
             />
+        </>
+    );
+}
+
+export default async function Home() {
+    const data = await getData()
+
+    return (
+        <>
+            <ExampleComponent data={data} />
         </>
     );
 }
