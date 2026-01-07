@@ -16,10 +16,10 @@ import {
   NumericCellType,
   registerCellType,
 } from 'handsontable/cellTypes';
-import { HotTable, HotColumn } from '@handsontable/react';
+const { HotTable } = require('@handsontable/react');
 
 import 'handsontable/dist/handsontable.full.css';
-import { Data } from '@/app/data';
+import data from '../books.json';
 
 registerCellType(CheckboxCellType);
 registerCellType(NumericCellType);
@@ -32,14 +32,22 @@ registerPlugin(DropdownMenu);
 registerPlugin(Filters);
 registerPlugin(HiddenRows);
 
-type GridProps = {
-  data: Data;
-};
+function Grid({ data }) {
+  const columns = [
+    { data: 1 },
+    { data: 2 },
+    { data: 3 },
+    { data: 5 },
+    { data: 6, type: 'checkbox', className: 'htCenter' },
+    { data: 7, type: 'numeric' },
+    { data: 8, readOnly: true, className: 'htMiddle' },
+    { data: 9, readOnly: true, className: 'htCenter' },
+  ];
 
-export default function Grid(props: GridProps) {
   return (
     <HotTable
-      data={props.data}
+      data={data}
+      columns={columns}
       colWidths={[140, 126, 192, 100, 100, 90, 90, 110, 97]}
       colHeaders={[
         'Company name',
@@ -61,15 +69,10 @@ export default function Grid(props: GridProps) {
       autoWrapRow={true}
       autoWrapCol={true}
       licenseKey="non-commercial-and-evaluation"
-    >
-      <HotColumn data={1} />
-      <HotColumn data={2} />
-      <HotColumn data={3} />
-      <HotColumn data={5} />
-      <HotColumn data={6} type="checkbox" className="htCenter" />
-      <HotColumn data={7} type="numeric" />
-      <HotColumn data={8} readOnly={true} className="htMiddle" />
-      <HotColumn data={9} readOnly={true} className="htCenter" />
-    </HotTable>
+    />
   );
+}
+
+export default function Page() {
+  return <Grid data={data} />;
 }

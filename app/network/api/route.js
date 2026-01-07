@@ -1,5 +1,3 @@
-export const dynamic = 'force-dynamic' // defaults to auto
-
 import bookData from './books.json';
 const fs = require('fs');
 
