@@ -8,7 +8,7 @@
     "build": "next build",
     "export": "next build",
     "deploy": "npm run build && gh-pages -d docs",
-    "push": "git add . && git commit -m 'Auto deploy' && git push origin main",
+    "push": "git add . && git commit -m 'Auto deploy' && git push origin master",
     "deploy-push": "npm run push && npm run deploy",
     "start": "next start"
   },
