@@ -224,6 +224,7 @@
     ,{"source":"안나 카레니나", "target": "카라마조프가의 형제들", "description":"작가의 언급, 러시아"}
     ,{"source":"어느 아가씨의 고백", "target": "속죄", "description":"플롯의 유사성"}
     ,{"source":"이반 일리치의 죽음", "target": "스토너", "description":"플롯의 유사성"}
+    ,{"source":"이반 일리치의 죽음", "target": "잃어버린 시간을 찾아서", "description":"죽음의 과정에 대한 탐구"}
     ,{"source":"고리오 영감", "target": "이반 일리치의 죽음", "description":"플롯의 유사성"}
     ,{"source":"이반 일리치의 죽음", "target": "실바니아 자작 발다사르 실방드의 죽음", "description":"플롯의 유사성"}
     ,{"source":"소돔의 120일 혹은 방탕주의 학교", "target": "비올랑트 혹은 사교계의 삶", "description":"플롯의 유사성, 프랑스"}
@@ -267,7 +268,7 @@
     ,{"source":"순수이성비판", "target":"정신현상학","description":"이성, 독일"}        
     ,{"source":"설국", "target":"인간실격","description":"유미주의, 일본"}        
     ,{"source":"율리시즈", "target":"등대로","description":"의식의 흐름, 영미문학"}        
-    ,{"source":"율리시즈", "target":"잃어버린 시간을 찾아서","description":"의식의 흐름름"}
+    ,{"source":"율리시즈", "target":"잃어버린 시간을 찾아서","description":"의식의 흐름"}
     ,{"source":"율리시즈", "target":"소설가 구보씨의 일일","description":"의식의 흐름, 플롯의 유사성"}
     ,{"source":"보바리 부인", "target":"잃어버린 시간을 찾아서","description":"작가의 언급, 프랑스"}
     ,{"source":"보바리 부인", "target":"변신","description":"작가의 언급"}

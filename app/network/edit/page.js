@@ -1,5 +1,5 @@
-'use client'
-import { useEffect, useState, useRef } from 'react';
+// 'use client'
+// import { useEffect, useState, useRef } from 'react';
 import dynamic from "next/dynamic";
 import { registerAllModules } from 'handsontable/registry';
 import 'handsontable/dist/handsontable.full.min.css';
@@ -19,25 +19,22 @@ async function getData() {
 }
 
 export default async function Home() {
-    const hotRef = useRef(null)
-    const data = await getData()
-    let onClick;
+    // const hotRef = useRef(null)
+    const data = await getData()    
 
-    useEffect(() => {
-        const hot = hotRef.current.hotInstance;
+    const onClick = async (e) => {
+        e.preventDefault();
+        // console.log(hotRef.current)
 
-        onClick = async (e) => {
-            e.preventDefault();
+        // await fetch("http://localhost:3000/network/api/", {
+        //     method: "POST",
+        //     headers: {
+        //         "Content-Type": "application/json",
+        //     },
+        //     body: JSON.stringify({ data: hotRef.current.hotInstance.getData() })
+        // });
+    };
 
-            await fetch("http://localhost:3000/network/api/", {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json",
-                },
-                body: JSON.stringify({ data: hot.getData() })
-            });
-        };
-    })
 
     return (
         <>
@@ -45,13 +42,7 @@ export default async function Home() {
                 save
             </button>
             <HotTable
-                // set `HotTable`'s props here
-                // data={[
-                //   ['', 'Tesla', 'Volvo', 'Toyota', 'Ford'],
-                //   ['2019', 10, 11, 12, 13],
-                //   ['2020', 20, 11, 14, 13],
-                //   ['2021', 30, 15, 12, 13]
-                // ]}
+                // ref={hotRef}
                 data={data.data}
                 rowHeaders={true}
                 colHeaders={true}
