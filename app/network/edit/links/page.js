@@ -92,6 +92,8 @@ export default function LinksPage() {
 
     if (loading) return <div>Loading...</div>;
 
+    const nodeIds = data.nodes.map(n => n.id).sort();
+
     return (
         <div style={{ padding: '20px' }}>
             <h1>Edit Links</h1>
@@ -111,8 +113,8 @@ export default function LinksPage() {
                 data={data.links}
                 colHeaders={['Source (ID)', 'Target (ID)', 'Description']}
                 columns={[
-                    { data: 'source' },
-                    { data: 'target' },
+                    { data: 'source', type: 'dropdown', source: nodeIds },
+                    { data: 'target', type: 'dropdown', source: nodeIds },
                     { data: 'description' },
                 ]}
                 colWidths={[200, 200, 300]}
