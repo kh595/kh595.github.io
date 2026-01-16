@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { Chrono } from 'react-chrono';
+import { BookData } from '../types';
 
 const Timeline = () => {
-  const [items, setItems] = useState([]);
+  const [items, setItems] = useState<any[]>([]);
 
   useEffect(() => {
     fetch('/books.json')

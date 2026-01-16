@@ -33,10 +33,12 @@ registerPlugin(DropdownMenu);
 registerPlugin(Filters);
 registerPlugin(HiddenRows);
 
+import { BookData } from '../../../types';
+
 export default function LinksPage() {
-    const [data, setData] = useState({ nodes: [], links: [] });
+    const [data, setData] = useState<BookData>({ nodes: [], links: [] });
     const [loading, setLoading] = useState(true);
-    const hotRef = useRef(null);
+    const hotRef = useRef<any>(null);
 
     useEffect(() => {
         fetch('/books.json')
