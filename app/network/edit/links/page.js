@@ -14,6 +14,7 @@ import {
 
 import {
     CheckboxCellType,
+    DropdownCellType,
     NumericCellType,
     registerCellType,
 } from 'handsontable/cellTypes';
@@ -21,6 +22,7 @@ import { HotTable } from '@handsontable/react';
 import 'handsontable/dist/handsontable.full.css';
 
 registerCellType(CheckboxCellType);
+registerCellType(DropdownCellType);
 registerCellType(NumericCellType);
 
 registerPlugin(AutoColumnSize);
