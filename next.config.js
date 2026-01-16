@@ -4,7 +4,7 @@ const nextConfig = {
     reactStrictMode: true,
     trailingSlash: true,
     output: 'export',
-    distDir: 'docs',
+    distDir: process.env.NODE_ENV === 'production' ? 'docs' : '.next',
 }
 
 module.exports = nextConfig
